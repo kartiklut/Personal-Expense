@@ -1,6 +1,8 @@
-
 import 'package:flutter/material.dart';
-import 'package:personal_expense/Transaction.dart';
+import 'package:personal_expense/widgets/AddingTransaction.dart';
+import 'package:personal_expense/widgets/CreatingTransaction.dart';
+import 'file:///F:/Flutter%20Projects/personal_expense/lib/models/Transaction.dart';
+import 'package:personal_expense/widgets/transactions_list.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,22 +20,6 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  final List<Transaction> transactions = [
-    Transaction(
-      id: 't1',
-      title: 'New Shoes',
-      amount: 69.99,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Weekly Groceries',
-      amount: 16.53,
-      date: DateTime.now(),
-    ),
-  ];
-
-
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -43,14 +29,18 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Flutter App"),
       ),
-      body: Container(
-        child: Column(children:transactions.map((tx) {
-          return Card(child: Text(tx.title),);
-        }).toList(),
-        )
-        ,
-      )
-      ,
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Column(
+              children: <Widget>[
+                Text("chart"),
+              ],
+            ),
+            AddingTransaction(),
+          ],
+        ),
+      ),
     );
   }
 }
