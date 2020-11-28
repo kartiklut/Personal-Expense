@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Personal Expense',
       home: MyHomePage(),
     );
   }
@@ -42,8 +42,8 @@ class _MyHomePageState extends State<MyHomePage> {
     ),
   ];
 
-  void _addNewTransaction(String txtitle, double txamount) {
-    final newTx = Transaction(id: DateTime.now().toString(), title: txtitle, amount: txamount, date: DateTime.now());
+  void _addNewTransaction(String txtitle, double txamount,DateTime dateTime) {
+    final newTx = Transaction(id: DateTime.now().toString(), title: txtitle, amount: txamount, date: dateTime);
     setState(() {
       _transactions.add(newTx);
     });
@@ -73,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Flutter App"),
+        title: Text("Personal Expense"),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.add),
